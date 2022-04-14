@@ -1,0 +1,23 @@
+{{#if use_minified}}
+<script src="/js/vendors.min.js?ver={{app_timestamp}}"></script>
+{{else}}
+<script src="/js/vendors.js?ver={{app_timestamp}}"></script>
+{{/if}}
+
+<script src="/js/common/custom.js"></script>
+
+<!-- Page wise Custom JS -->
+{{#if use_minified}}
+<script src="/js/application.min.js?ver={{app_timestamp}}"></script>
+{{else}}
+<script src="/js/application.js?ver={{app_timestamp}}"></script>
+{{/if}}
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+        "use strict";
+        // Init Theme Core
+        Core.init();
+        // Init Demo JS
+        Demo.init();
+    });
+</script>

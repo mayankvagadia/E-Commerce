@@ -1,0 +1,125 @@
+<!-- Start: Topbar -->
+<header id="topbar">
+    <div class="topbar-left">
+        <ol class="breadcrumb">
+            <li class="crumb-icon">
+                <a class="ajax_link" href="/admin/dashboard">
+                    <span class="glyphicon glyphicon-home"></span>
+                </a>
+            </li>
+            <li class="crumb-trail">SMTP Configurations</li>
+        </ol>
+    </div>
+</header>
+<section id="content" class="table-layout">
+    <!-- End: Topbar -->
+    <div class="tray tray-center">
+        <div class="panel panel-primary">
+            <div class="panel-heading">System Settings</div>
+            <form id="add_mailDetails_form" class="admin-form add_mailDetails_form" action="" method="post"
+                novalidate="novalidate">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="section">
+                                        <label class="field-label" for="smtp_host">Host</label>
+                                        <label class="field prepend-icon">
+
+                                            <input type="hidden" name="config_record_id" value="{{SettingsData._id}}">
+                                            <input type="text" placeholder="Enter Host" class="gui-input"
+                                                name="smtp_host" value="{{SettingsData.smtp_host}}">
+                                            <label class="field-icon" for="smtp_host">
+                                                <i class="fa fa-user"></i>
+                                            </label>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="section">
+                                        <label class="field-label" for="smtp_port">Port</label>
+                                        <label class="field prepend-icon">
+                                            <input type="text" placeholder="Enter last Post number" class="gui-input"
+                                                name="smtp_port" value="{{SettingsData.smtp_port}}">
+                                            <label class="field-icon" for="smtp_port">
+                                                <i class="fa fa-user"></i>
+                                            </label>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="section">
+                                        <label class="field-label" for="smtp_email">Email</label>
+                                        <label class="field prepend-icon">
+                                            <input type="text" placeholder="Enter email" id="smtp_email"
+                                                class="gui-input" name="smtp_email" value="{{SettingsData.smtp_email}}">
+                                            <label class="field-icon" for="smtp_email">
+                                                <i class="fa fa-envelope"></i>
+                                            </label>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="section">
+                                        <label class="field-label" for="smtp_password">Password</label>
+                                        <label class="field prepend-icon">
+                                            <input type="password" placeholder="Enter password" class="gui-input"
+                                                name="smtp_password" value="{{SettingsData.smtp_password}}">
+                                            <label class="field-icon" for="password">
+                                                <i class="fa fa-mobile"></i>
+                                            </label>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="section">
+                                        <label class="field-label" for="c">From Name</label>
+                                        <label class="field prepend-icon">
+                                            <input type="text" placeholder="Enter from name" class="gui-input"
+                                                name="smtp_from_name" value="{{SettingsData.smtp_from_name}}">
+                                            <label class="field-icon" for="smtp_from_name">
+                                                <i class="fa fa-envelope"></i>
+                                            </label>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="section">
+                                        <label class="field-label" for="smtp_from_email">From Email</label>
+                                        <label class="field prepend-icon">
+                                            <input type="email" placeholder="Enter from email" class="gui-input"
+                                                name="smtp_from_email" value="{{SettingsData.smtp_from_email}}">
+                                            <label class="field-icon" for="from_email">
+                                                <i class="fa fa-mobile"></i>
+                                            </label>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer text-right">
+                    <button class="ladda-button button btn-primary" data-style="zoom-in" id="add-mailDetails-test-btn"
+                        type="submit"> Test
+                    </button>
+                    <button class="ladda-button button btn-success" data-style="zoom-in" id="add-mailDetails-submit-btn"
+                        type="submit"> Submit
+                    </button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</section>
+<!--call page wise JS-->
+<script type="text/javascript">
+    $('document').ready(function () {
+        new SmtpTemplateEventHandler();
+    });
+</script>

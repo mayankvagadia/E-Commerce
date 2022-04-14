@@ -1,0 +1,78 @@
+<!-- Start: Sidebar Left -->
+<aside id="sidebar_left" class="nano nano-primary affix sidebar-light">
+    <!-- Start: Sidebar Left Content -->
+    <div class="sidebar-left-content nano-content">
+        <!-- Start: Sidebar Header -->
+        <header class="sidebar-header">
+            <div class="sidebar-widget author-widget mtn">
+                <div class="media">
+                    <a class="media-left" href="#">
+                        <img src="{{#if user_session.photo}}/uploads/avatar/{{user_session.photo}}{{else}}/images/user.png{{/if}}"
+                            class="img-responsive" style="width:100px; height:40px;">
+                    </a>
+                    <div class="media-body">
+                        <div class="media-author">{{user_session.first_name}} {{user_session.last_name}}</div>
+                        <div class="text-muted"><small>Admin</small></div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- End: Sidebar Header -->
+        <!-- Start: Sidebar Left Menu -->
+        <ul class="nav sidebar-menu mb25">
+            <li class="active pt20">
+                <a class="ajax_link" href="/admin/dashboard">
+                    <span class="fa fa-dashboard"></span>
+                    <span class="sidebar-title">Dashboard</span>
+                </a>
+            </li>
+            <li class="sidebar-label pt10"></li>
+            <li>
+                <a class="accordion-toggle" href="#">
+                    <span class="fa fa-user"></span>
+                    <span class="sidebar-title">Administration</span>
+                    <span class="caret"></span>
+                </a>
+                <ul class="nav sub-nav">
+                    <li>
+                        <a class="accordion-toggle ajax_link" href="/admin/users/list/admins">
+                            <span class="fa fa-users"></span>
+                            Admin Management
+                        </a>
+                    </li>
+                    <li>
+                        <a class="accordion-toggle ajax_link" href="/admin/users/list">
+                            <span class="fa fa-users"></span>
+                            User Management
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="sidebar-label pt10"></li>
+            <li>
+                <a class="accordion-toggle" href="#">
+                    <span class="fa fa-gears"></span>
+                    <span class="sidebar-title">System Setting</span>
+                    <span class="caret"></span>
+                </a>
+                <ul class="nav sub-nav">
+                    <li>
+                        <a class="ajax_link" href="/admin/mail_templates/index">
+                            <span class="fa fa-envelope-o"></span>
+                            Email Template
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ajax_link" href="/admin/settings/index">
+                            <span class="fa fa-envelope-o"></span>
+                            SMTP Configurations
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <!-- End: Sidebar Menu -->
+    </div>
+    <!-- End: Sidebar Left Content -->
+</aside>
+<!-- End: Sidebar Left -->

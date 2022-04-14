@@ -1,0 +1,173 @@
+<!-- Start: Topbar -->
+<header id="topbar">
+    <div class="topbar-left">
+        <ol class="breadcrumb">
+            <li class="crumb-icon">
+                <a class="ajax_link" href="/admin/dashboard">
+                    <span class="glyphicon glyphicon-home"></span>
+                </a>
+            </li>
+            {{#compare listtype 'admins' operator="=="}}
+            <li class="crumb-trail">All Admins</li>
+            {{else}}
+            <li class="crumb-trail">All Users</li>
+            {{/compare}}
+        </ol>
+    </div>
+    {{#compare listtype 'admins' operator="=="}}
+    <div class="topbar-right hidden-xs hidden-sm">
+        <a class="btn btn-default btn-sm light fw600 ml10 ajax_link" href="/admin/users/add">
+            <span class="fa fa-user-plus pr5"></span> Add Admin
+        </a>
+    </div>
+    {{/compare}}
+</header>
+<!-- End: Topbar -->
+<section class="table-layout" id="content">
+    <!-- begin: .tray-center -->
+    <div class="tray tray-center">
+        <!-- recent orders table -->
+        <div class="panel panel-primary">
+            <div class="panel-heading">{{title}}</div>
+            <div class="panel-menu admin-form">
+                <div class="smart-widget sm-right smr-50">
+                    <label class="field">
+                        <input type="text"
+                            placeholder="Search {{#compare listtype 'admins' operator="=="}} admin {{else}} user {{/compare}} ...."
+                            class="gui-input" value="{{search}}" id="search-input" name="search">
+                    </label>
+                    <button class="button btn-primary" id="search-btn" type="button">
+                        <i class="fa fa-search"></i>
+                    </button>
+                    {{#if search}}
+                    <a {{#compare listtype 'admins' operator="=="}} href="/admin/users/list/admins" {{else}}
+                        href="/admin/users/list" {{/compare}} class="button btn-dark ajax_link">
+                        <i class="fa fa-arrow-circle-o-left"></i>
+                    </a>
+                    {{/if}}
+                </div>
+            </div>
+            <div class="panel-body">
+                <div id="table_content">
+                    <div class="table-responsive">
+                        <table class="sortable table fs13">
+                            <thead>
+                                <tr class="bg-light">
+                                    <th class="">Avatar</th>
+                                    <th class="sorting"><a href="{{sort_url}}" class="ajax_sorting" data-sort="asc"
+                                            data-field="first_name">Name</a></th>
+                                    <th class="sorting"><a href="{{sort_url}}" class="ajax_sorting" data-sort="asc"
+                                            data-field="email">Email</a></th>
+                                    <th class="sorting"><a href="{{sort_url}}" class="ajax_sorting" data-sort="asc"
+                                            data-field="mobile">Mobile</a></th>
+                                    <th class="sorting"><a href="{{sort_url}}" class="ajax_sorting" data-sort="asc"
+                                            data-field="created_on">Created On</a></th>
+                                    <th class="sorting"><a href="{{sort_url}}" class="ajax_sorting" data-sort="asc"
+                                            data-field="status">Status</a></th>
+                                    <th class="text-right">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{#each users}}
+                                <tr>
+                                    <td class="w50">
+                                        <img src="{{#if photo}}/uploads/avatar/{{photo}}{{else}}/images/user.png{{/if}}"
+                                            title="user" class="img-responsive mw30 ib mr10">
+                                    </td>
+                                    <td class="">{{concat first_name last_name}}</td>
+                                    <td class="">{{email}}</td>
+                                    <td class="">{{mobile}}</td>
+                                    <td>{{dbToCompanyDate this.created_on 'MM/DD/Y'}}</td>
+                                    <td class="">
+                                        {{#compare ../user_session._id _id operator="!="}}
+                                        <a data-toggle="tooltip"
+                                            class="change_user_status label {{#compare status 'active' operator="=="}} label-success {{else}} label-danger {{/compare}}"
+                                            data-id="{{_id}}" data-status="{{status}}" title="Change Status"
+                                            href="#">{{{string status 'humanize'}}}</a>
+                                        {{else}}
+                                        <a data-toggle="tooltip"
+                                            class="label {{#compare status 'active' operator="=="}} label-success {{else}} label-danger {{/compare}} disabled-a"
+                                            title="Change Status" href="#">{{{string status 'humanize'}}}</a>
+                                        {{/compare}}
+                                    </td>
+                                    <td class="text-right">
+                                        {{#compare ../user_session._id _id operator="!="}}
+                                        <a href="/admin/users/resetPassword/{{_id}}" data-effect="mfp-rotateDown"
+                                            class="btn btn-xs btn-primary reset-user-password" data-toggle="tooltip"
+                                            title="Change Password"><i class="fa fa-key"></i></a>
+                                        {{else}}
+                                        <a href="javascript:void(0)" data-effect="mfp-rotateDown"
+                                            class="btn btn-xs btn-primary disabled-a" data-toggle="tooltip"
+                                            title="Change Password"><i class="fa fa-key"></i></a>
+                                        {{/compare}}
+                                    </td>
+                                </tr>
+                                {{else}}
+                                <tr>
+                                    <td colspan="100%" class="text-center text-danger">No
+                                        {{#compare listtype 'admins' operator="=="}} admins {{else}} users {{/compare}}
+                                        found</td>
+                                </tr>
+                                {{/each}}
+                            </tbody>
+                        </table>
+                        {{{pagination paginator}}}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- end: .tray-center -->
+</section>
+
+<div id="password-reset-modal" class="popup-basic mfp-with-anim mfp-hide">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <span class="panel-title">
+                <i class="fa fa-key"></i> Reset Password
+            </span>
+        </div>
+        <!-- end .panel-heading section -->
+        <form method="post" action="" id="reset-user-password-form" class="admin-form">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="section">
+                            <label class="field-label" for="password">New Password</label>
+                            <label for="password" class="field">
+                                <input type="password" name="password" tabindex="1" id="password" class="gui-input"
+                                    placeholder="Enter new password">
+                            </label>
+                        </div>
+                    </div>
+                    <!-- end section -->
+                    <div class="col-md-12">
+                        <div class="section">
+                            <label class="field-label" for="confirm_password">Confirm Password</label>
+                            <label for="confirm_password" class="field">
+                                <input type="password" name="confirm_password" tabindex="2" class="gui-input"
+                                    placeholder="Enter confirm password">
+                            </label>
+                        </div>
+                    </div>
+                    <!-- end section -->
+                </div>
+            </div>
+            <!-- end .form-body section -->
+            <div class="panel-footer">
+                <button type="submit" tabindex="3" id="reset-password-submit-btn" data-style='zoom-in'
+                    class="ladda-button button btn-primary">Reset Password</button>
+            </div>
+            <!-- end .form-footer section -->
+        </form>
+    </div>
+    <!-- end: .panel -->
+</div>
+
+<!--call page wise JS-->
+<script type="text/javascript">
+    $(document).ready(function () {
+        new UserEventHandler();
+    });
+</script>

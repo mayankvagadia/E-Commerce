@@ -1,0 +1,67 @@
+<!-- Start: Topbar -->
+<header id="topbar">
+    <div class="topbar-left">
+        <ol class="breadcrumb">
+            <li class="crumb-icon">
+                <a class="ajax_link" href="/admin/dashboard">
+                    <span class="glyphicon glyphicon-home"></span>
+                </a>
+            </li>
+            <li class="crumb-trail">Mail Templates</li>
+        </ol>
+    </div>
+</header>
+<!-- End: Topbar -->
+<section class="table-layout" id="content">
+    <!-- begin: .tray-center -->
+    <div class="tray tray-center">
+        <!-- recent orders table -->
+        <div class="panel panel-primary">
+            <div class="panel-heading">Email Template List</div>
+            <div class="panel-body">
+                <div id="table_content">
+                    <div class="table-responsive">
+                        <table class="sortable table admin-form theme-warning fs13">
+                            <thead>
+                                <tr class="bg-light">
+                                    <th class="sorting"><a href="{{sort_url}}" class="ajax_sorting" data-sort="asc" data-field="template_event">Event</a></th>
+                                    <th class="sorting"><a href="{{sort_url}}" class="ajax_sorting" data-sort="asc" data-field="subject">Subject</a></th>
+                                    <th class="">Variable</th>
+                                    <th class="">Test Mail</th>
+                                    <th class="text-right">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{#if templates}}
+                                {{#each templates}}
+                                <tr>
+                                    <td class="">{{{string this.template_event 'humanize'}}}</td>
+                                    <td class="">{{this.subject}}</td>
+                                    <td class="">{{this.mail_variables}}</td>
+                                    <td class=""><a data-toggle="tooltip" class="btn btn-info btn-xs test-mail" data-toggle="tooltip" data-original-title="Test Email" href="/admin/mail_templates/test_template/{{this.template_event}}"><i class="fa fa-envelope"></i></a></td>
+                                    <td class="text-right">
+                                        <a href="/admin/mail_templates/edit/{{this._id}}" class="btn btn-xs btn-system ajax_link" data-toggle="tooltip" data-original-title="Edit Template"><i class="fa fa-pencil"></i></a>
+                                    </td>
+                                </tr>
+                                {{/each}}
+                                {{else}}
+                                <tr>
+                                    <td colspan="100%" class="text-center text-danger">No template found</td>
+                                </tr>
+                                {{/if}}
+                            </tbody>
+                        </table>
+                        {{{pagination paginator}}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end: .tray-center -->
+</section>
+<!--call page wise JS-->
+<script type="text/javascript">
+    $('document').ready(function () {
+        new MailTemplateEventHandler();
+    });
+</script>

@@ -1,0 +1,41 @@
+<!-- Start: Header -->
+<header class="navbar navbar-fixed-top bg-primary">
+    <div class="navbar-branding dark bg-primary">
+        <a class="navbar-brand ajax_link" href="/admin/dashboard">
+            {{!-- <img src="/logo.jpg" height="50" width="60" /> --}}
+        </a>
+        <span id="toggle_sidemenu_l" class="ad ad-lines"></span>
+    </div>
+    <ul class="nav navbar-nav navbar-left">
+        <li class="hidden-xs">
+            <a class="request-fullscreen toggle-active" href="#">
+                <span class="ad ad-screen-full fs18"></span>
+            </a>
+        </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle fw600 p15" id="dropdown-toggle-right-menu" data-toggle="dropdown">
+                <img src="{{#if user_session.photo}}/uploads/avatar/{{user_session.photo}}{{else}}/images/user.png{{/if}}"
+                    alt="avatar" style="width:35px; height:35px;" class="br64 mr15">
+                {{user_session.first_name}} {{user_session.last_name}}
+                <span class="caret caret-tp hidden-xs"></span>
+            </a>
+            <ul class="dropdown-menu list-group dropdown-persist w250" role="menu">
+                <li class="list-group-item">
+                    <a href="/admin/users/edit_profile" class="animated animated-short fadeInUp ajax_link">
+                        <span class="fa fa-user"></span> Profile </a>
+                </li>
+                <li class="list-group-item">
+                    <a href="/admin/users/change_password" class="animated animated-short fadeInUp ajax_link">
+                        <span class="fa fa-key"></span> Change Password </a>
+                </li>
+                <li class="dropdown-footer">
+                    <a href="/admin/logout" class="logout">
+                        <span class="fa fa-power-off pr5"></span> Logout </a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</header>
+<!-- End: Header

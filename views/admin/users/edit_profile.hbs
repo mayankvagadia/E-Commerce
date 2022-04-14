@@ -1,0 +1,106 @@
+<!-- Start: Topbar -->
+<header id="topbar">
+    <div class="topbar-left">
+        <ol class="breadcrumb">
+            <li class="crumb-icon">
+                <a class="ajax_link" href="/admin/dashboard">
+                    <span class="glyphicon glyphicon-home"></span>
+                </a>
+            </li>
+            <li class="crumb-trail">Edit Profile</li>
+        </ol>
+    </div>
+</header>
+<section id="content" class="table-layout">
+    <!-- End: Topbar -->
+    <div class="tray tray-center">
+        <div class="theme-primary">
+            <div class="panel heading-border panel-primary">
+                <div class="panel-heading">{{user.first_name}} {{user.last_name}}: Edit Profile</div>
+                <form enctype="multipart/form-data" id="edit_profile_form" action="" method="post" novalidate="novalidate" class="admin-form edit_profile_form">
+                    <div class="panel-body bg-light">
+                        <input type="hidden" name="id" value="{{user.id}}" id="user_id" />
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="section">
+                                            <label class="field-label" for="first_name">First Name</label>
+                                            <label class="field prepend-icon">
+                                                <input type="text" placeholder="first name" value="{{user.first_name}}" class="gui-input" name="first_name">
+                                                <label class="field-icon" for="first_name">
+                                                    <i class="fa fa-user"></i>
+                                                </label>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="section">
+                                            <label class="field-label" for="last_name">Last Name</label>
+                                            <label class="field prepend-icon">
+                                                <input type="text" placeholder="last name" value="{{user.last_name}}" class="gui-input" name="last_name">
+                                                <label class="field-icon" for="last_name">
+                                                    <i class="fa fa-user"></i>
+                                                </label>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="section">
+                                            <label class="field-label" for="email">Email</label>
+                                            <label class="field prepend-icon">
+                                                <input type="email" placeholder="email" readonly id="user_email" value="{{user.email}}" class="gui-input" name="email">
+                                                <label class="field-icon" for="email">
+                                                    <i class="fa fa-envelope"></i>
+                                                </label>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="section">
+                                            <label class="field-label" for="mobile">Phone Number</label>
+                                            <label class="field prepend-icon">
+                                                <input type="text" placeholder="phone number" value="{{user.mobile}}" class="gui-input" name="mobile">
+                                                <label class="field-icon" for="mobile">
+                                                    <i class="fa fa-mobile"></i>
+                                                </label>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="row text-center">
+                                    <label class="field-label">Profile Picture</label>
+                                    <img alt="user image" src="{{#if user.photo}}/uploads/avatar/{{user.photo}}{{else}}/images/user.png{{/if}}" id="user_image_upload_preview" width="160" height="160" class="media-object mw150">
+                                    <label class="field prepend-icon append-button file mt15">
+                                        <span class="button">Choose File</span>
+                                        <input type="file" class="gui-file" name="user_image" id="user_profile_image" onChange="document.getElementById('uploader1').value = this.value;">
+                                        <input type="text" class="gui-input" id="uploader1" placeholder="Please Select A File">
+                                        <label class="field-icon">
+                                            <i class="fa fa-upload"></i>
+                                        </label>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="panel-footer text-right">
+                        <button class="ladda-button button btn-primary" data-style='zoom-in' id='user-form-submit-btn' type="submit"> Update </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--call page wise JS-->
+<script type="text/javascript">
+    var from = 'edit_profile';
+    $(document).ready(function () {
+        new UserEventHandler();
+    })
+</script>

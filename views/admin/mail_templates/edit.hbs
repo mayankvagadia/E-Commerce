@@ -1,0 +1,73 @@
+<!-- Start: Topbar -->
+<header id="topbar">
+    <div class="topbar-left">
+        <ol class="breadcrumb">
+            <li class="crumb-icon">
+                <a class="ajax_link" href="/admin/dashboard">
+                    <span class="glyphicon glyphicon-home"></span>
+                </a>
+            </li>
+            <li class="crumb-link">
+                <a class="ajax_link" href="/admin/mail_templates/index">All Template</a>
+            </li>
+            <li class="crumb-trail">Edit Template</li>
+        </ol>
+    </div>
+</header>
+<section id="content" class="table-layout">
+    <!-- End: Topbar -->
+    <div class="tray tray-center">
+        <div class="panel panel-primary">
+            <div class="panel-heading">Edit Email Template : {{{string template.template_event 'humanize'}}}</div>
+
+            <form id="mail_template_form" action="" method="post" novalidate="novalidate" class="admin-form">
+
+                <div class="panel-body bg-light">
+                    <div class="row">
+                        <div class="section">
+                            <label class="field-label" for="first_name">Template Event</label>
+                            <label class="field">
+                                <b>{{{string template.template_event 'humanize'}}}</b>
+                            </label>
+                        </div>
+                        <div class="section">
+                            <label class="field-label" for="first_name">Mail Variables</label>
+                            <label class="field">
+                                <b>{{template.mail_variables}}</b>
+                            </label>
+                        </div>
+                        <div class="section">
+                            <label class="field-label" for="subject">Subject</label>
+                            <label class="field">
+                                <input type="text" placeholder="Enter subject" value="{{template.subject}}" class="gui-input" name="subject">
+                            </label>
+                        </div>
+                        <div class="section">
+                            <label class="field-label" for="html_body">Html Body</label>
+                            <label class="field">
+                                <textarea name="html_body" class="ckeditor" rows="20">{{template.html_body}}</textarea>
+                            </label>
+                        </div>
+                        <div class="section">
+                            <label class="field-label" for="text_body">Text Body</label>
+                            <label class="field">
+                                <textarea name="text_body" class="gui-textarea" rows="8">{{template.text_body}}</textarea>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer text-right">
+                    <button class="button btn-primary ladda-button" id="mail_template_form_btn" type="submit"> Submit </button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</section>
+
+<!--call page wise JS-->
+<script type="text/javascript">
+    $('document').ready(function () {
+        new MailTemplateEventHandler();
+    });
+</script>

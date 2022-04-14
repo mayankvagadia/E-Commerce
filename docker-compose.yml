@@ -1,0 +1,28 @@
+version: '2'
+services:
+    maxy-media:
+        image: 'maxy-media:latest'
+        container_name: maxy-media
+        restart: always
+        build:
+            dockerfile: Dockerfile
+            context: ./
+        links:
+            - mongodb
+        ports:
+            - '3003:80'
+        volumes:
+            - './data/pm2logs:/root/.pm2/logs'
+            - './data/logs:/opt/maxy-media/logs'
+    mongodb:
+        image: 'mongo:4.2.0-bionic'
+        container_name: maxy-media-mongo
+        ports:
+            - '27025:27017'
+        restart: always
+        volumes:
+            - './data/mongo:/data/db'
+        environment:
+            MONGO_INITDB_ROOT_USERNAME: admin
+            MONGO_INITDB_ROOT_PASSWORD: admin
+            MONGO_INITDB_DATABASE: admin
