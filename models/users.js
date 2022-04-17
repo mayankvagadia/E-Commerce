@@ -63,9 +63,9 @@ usersSchema.virtual('full_name').get(function () {
         return "";
     }
 });
+// let user = db.model('User', usersSchema);
 
-let user = db.model('User', usersSchema);
-
+let user = mongoose.model('User', usersSchema)
 module.exports = {
     Model: user,
     /**Query for create new user

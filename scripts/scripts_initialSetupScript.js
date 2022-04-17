@@ -31,7 +31,7 @@ const MongoClient = require('mongodb').MongoClient;
 //get dbconfig
 let dbconfig = config['datasource'];
 //create database connection uri for central db
-let database = 'mongodb://' + dbconfig.root_user + ':' + dbconfig.root_password + '@' + dbconfig.host + ':' + dbconfig.port + '/admin';
+let database = 'mongodb://:' + dbconfig.host + ':' + dbconfig.port + '/admin';
 //connect database
 MongoClient.connect(database, {
   useNewUrlParser: true

@@ -92,7 +92,7 @@ router.get('/list/:role?', function (req, res, next) {
         sort: sort
     };
 
-    pagination.getPagination(usersModel.Model, '/admin/users' + req.url, req.query.page, row, {
+    pagination.getPagination(usersModel.Model, '/users' + req.url, req.query.page, row, {
         conditions: conditions,
         options: options
     }, function (data) {
@@ -113,7 +113,7 @@ router.get('/list/:role?', function (req, res, next) {
  * Get for display add user view
  */
 router.get('/add', function (req, res, next) {
-    res.render('admin/users/add', {
+    res.render('users/add', {
         'title': ' Add Admin',
         'from': 'add'
     });
@@ -269,7 +269,7 @@ router.post('/edit_profile', function (req, res, next) {
  * GET for display change logged in user password layout.
  */
 router.get('/change_password', function (req, res, next) {
-    res.render('admin/users/change_password', {
+    res.render('users/change_password', {
         title: 'Change Password'
     });
 });

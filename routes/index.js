@@ -7,8 +7,11 @@ const userModel = require("../models/users")
 
 
 router.get('/', function (req, res, next) {
-  if (req.isAuthenticated()) {
-    res.redirect('/main/dashboard');
+  console.log("index");
+  console.log(req.user);
+  if (!req.isAuthenticated()) {
+    console.log("ifffffffffffffff=========================");
+   return res.redirect('/admin/main/dashboard');
   } else {
     return res.render('user/login');
   }

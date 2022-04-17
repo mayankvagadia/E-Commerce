@@ -1,0 +1,517 @@
+
+#grad1 {
+    height: 200px;
+    background-color: red;
+    /* For browsers that do not support gradients */
+    background-image: linear-gradient(red, yellow);
+}
+
+hr {
+    background: deepskyblue;
+    width: 4rem;
+    height: 0.3rem;
+    margin-top: 1rem;
+    display: inline-flex;
+}
+
+h2 {
+    color: white;
+    text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+}
+
+
+.heading {
+    margin-top: 5px;
+    padding: 5px;
+    background: whitesmoke;
+    display: flex;
+    height: auto;
+    width: auto;
+}
+
+.logo {
+    height: 2%;
+    width: 10%;
+    margin-right: 30%;
+}
+
+
+
+.hero_img_div {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    object-fit: cover;
+    overflow: hidden;
+    height: 85vh;
+    width: 100vw;
+}
+
+.hero_3 {
+    margin-top: 4rem;
+    align-items: center;
+    margin-left: 12rem;
+    width: 70vw;
+}
+
+.hero_3_div {
+    border-top: 5px solid lightblue;
+    background: whiteSmoke;
+    justify-content: center;
+    text-align: center;
+    border-bottom: 5px solid lightgrey;
+    margin-bottom: 4rem;
+    background-color: #e9b9c1;
+    /* background-image: linear-gradient(rgb(241, 185, 185), rgb(139, 139, 127)); */
+}
+
+.btn {
+    background-color: rgb(10, 81, 105);
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1rem;
+    border-radius: 4px;
+    transition: 0.6s ease;
+    cursor: pointer;
+    margin-bottom: 2rem;
+}
+
+.btn:hover {
+    /* background-color: rgb(236, 236, 243); */
+    background: rgb(236, 227, 228);
+    color: rgb(204, 107, 107);
+    border: 2px solid rgb(233, 130, 130);
+}
+
+.gallery_view {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5rem;
+}
+
+.gallery {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    object-fit: cover;
+    transition: 0.4s ease;
+    cursor: pointer;
+    margin: 5px;
+    border: 1px solid #ccc;
+    width: 350px;
+}
+
+.gallery_img {
+    width: 100%;
+    height: auto;
+}
+
+.gallery:hover {
+    border: 1px solid black;
+}
+
+.title {
+    padding: 15px;
+    background: whiteSmoke;
+    text-align: center;
+}
+/* -----------------------------------------------Carosusel-------------------------------------------------- */
+
+.carousel {
+    width: auto;
+    height: auto;
+    padding: 0rem 6rem 0rem 6rem;
+}
+
+.item1 {
+    margin-top: 1rem;
+}
+
+.item_img {
+    width: 100%;
+    height: 60vh;
+}
+/* -----------------------------------------------xxxxxxxxx-------------------------------------------------- */
+/* --------------------------------------------------info---------------------------------------------------- */
+
+.info {
+    margin-top: 1rem;
+    align-items: center;
+    justify-content: center;
+    padding: 0rem 6rem 0rem 6rem;
+}
+
+.info_div {
+    display: flex;
+}
+
+.card {
+    padding: 2rem;
+    margin: 1rem;
+    /* background-color: #e9b9c1; */
+    /* background-image: linear-gradient(rgb(150, 137, 137), rgb(216, 174, 182)); */
+    display: flex;
+    flex-direction: column;
+    /* height: 50vh; */
+    width: 100%;
+}
+
+.card:nth-child(1) {
+    margin-left: 0rem;
+}
+
+.card:nth-child(3) {
+    margin-right: 0rem;
+}
+
+.title2 {
+    font-size: 2rem;
+    text-align: left;
+    margin-bottom: 0.5rem;
+}
+/* -----------------------------------------------xxxxxxxx-------------------------------------------------- */
+/* ---------------------tootltip ----------------------------- */
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+    color: blue;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+/* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
+/* Hero div for blog page */
+/* ----------------------------------------------Hero------------------------------------------------------- */
+
+.hero {
+    background: #f1f1f1;
+    padding: 3rem 10rem 1.4rem 11rem;
+}
+
+.hero_div {
+    display: flex;
+}
+
+.hero_div_para {
+    width: 56%;
+}
+
+.hero_p {
+    color: #919191;
+}
+
+.hero_div_img {
+    overflow: hidden;
+    width: 60vw;
+    height: 50vh;
+}
+
+.hero_img {
+    width: 100%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-left: 1rem;
+}
+/* ------------------------------------------------------------------------------------------------------------ */
+/* content for blog page */
+/* -----------------------------------------------Content -------------------------------------------------- */
+
+.content {
+    padding: 0rem 6rem 0rem 6rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.content_div {
+    display: flex;
+    padding: 2rem;
+    background-color: rgb(235, 223, 223);
+}
+
+.first {
+    flex: 1;
+    margin-right: 2rem;
+}
+
+.title_content {
+    font-size: 2rem;
+    margin-bottom: 0.6rem;
+}
+
+.sub_header {
+    font-size: 1.5rem;
+    margin-top: 0.6rem;
+    margin-bottom: 0.6rem;
+}
+
+.second {
+    width: 25vw;
+}
+
+/* -----------------------------------------------xxxxxxxx-------------------------------------------------- */
+/* xxxxxxxxxxxxxxxxxxxxxxxx */
+/* ---------------------------------------------------Gallery-Block--------------------------------------------- */
+
+.gallery_block {
+    width:100%;
+  /* padding: 4rem 11rem 0rem 11rem; */
+}
+
+.gallery_view {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5rem;
+    border:2 solid black;
+}
+
+.gallery {
+    display: flex;
+    flex-direction: column;
+    transition: 0.4s ease;
+    cursor: pointer;
+    /* margin: 1rem; */
+    overflow: hidden;
+}
+
+.gallery:nth-child(1) {
+    margin: 0px 19px 0px 5px;
+}
+
+.gallery:nth-child(2) {
+    margin: 0px 30px 0px 30px;
+}
+
+.gallery:nth-child(3) {
+    margin: 0px 0px 0px 19px;
+}
+
+.gallery_img {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    object-fit: cover;
+    width: 100%;
+    height: 25vh;
+}
+
+.gallery_title {
+    padding-left:10%;
+    text-align: left;
+    color: darkblue;
+}
+
+.gallery_desc {
+    padding-left:60%;
+    color: #a5a5a5;
+}
+label{
+    color:black;
+}
+.btn_gallery {
+    background-color: #e2dbd5;
+    border: none;
+    color: rgb(197, 78, 78);
+    padding: 10px 10px;
+    width: 10vw;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1rem;
+    border-radius: 4px;
+    transition: 0.6s ease;
+    cursor: pointer;
+    margin-top: 2rem;
+    margin-left: 5rem;
+    margin-bottom: 2rem;
+}
+
+.btn_gallery:hover {
+    background-color: rgb(7, 7, 6);
+    color: pink;
+    opacity: 0.9;
+}
+/* ------------------------------------------xxxxxxxxxxxxx------------------------------------------------------- */
+/* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+}
+
+footer {
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    background-color: #e9b9c1;
+    background-image: linear-gradient(rgb(241, 185, 185), rgb(139, 139, 127));
+}
+
+footer .content {
+    max-width: 1350px;
+    margin: auto;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+footer .content p,
+a {
+    color: rgb(19, 17, 17);
+}
+
+footer .content .box {
+    width: 33%;
+    transition: all 0.4s ease;
+}
+
+footer .content .topic {
+    font-size: 22px;
+    font-weight: 600;
+    color: rgb(10, 28, 78);
+    margin-bottom: 16px;
+}
+
+footer .content p {
+    text-align: justify;
+}
+
+footer .content .lower .topic {
+    margin: 24px 0 5px 0;
+}
+
+footer .content .lower i {
+    padding-right: 16px;
+}
+
+footer .content .middle {
+    padding-left: 80px;
+}
+
+footer .content .middle a {
+    line-height: 32px;
+}
+
+footer .content .right input[type="text"] {
+    height: 45px;
+    width: 100%;
+    outline: none;
+    color: #d9d9d9;
+    background: #000;
+    border-radius: 5px;
+    padding-left: 10px;
+    font-size: 17px;
+    border: 2px solid #222222;
+}
+
+footer .content .right input[type="submit"] {
+    height: 42px;
+    width: 100%;
+    font-size: 18px;
+    color: #d9d9d9;
+    background: #000000;
+    outline: none;
+    border-radius: 5px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    margin-top: 12px;
+    border: 2px solid #d664a7;
+    transition: all 0.3s ease-in-out;
+}
+
+.content .right input[type="submit"]:hover {
+    background: rgb(212, 131, 145);
+    color: black;
+    border: 2px solid black;
+}
+
+footer .content .media-icons a {
+    font-size: 16px;
+    height: 45px;
+    width: 45px;
+    display: inline-block;
+    text-align: center;
+    line-height: 43px;
+    border-radius: 5px;
+    border: 2px solid #222222;
+    margin: 30px 5px 0 0;
+    transition: all 0.3s ease;
+}
+
+.content .media-icons a:hover {
+    border-color: rgb(153, 26, 47);
+}
+
+footer .bottom {
+    width: 100%;
+    text-align: right;
+    color: #d9d9d9;
+    padding: 0 40px 5px 0;
+}
+
+footer .bottom a {
+    color: #070201;
+}
+
+footer a {
+    transition: all 0.3s ease;
+}
+
+footer a:hover {
+    color: #13100f;
+}
+
+@media (max-width:1100px) {
+    footer .content .middle {
+        padding-left: 50px;
+    }
+}
+
+@media (max-width:950px) {
+    footer .content .box {
+        width: 50%;
+    }
+    .content .right {
+        margin-top: 40px;
+    }
+}
+
+@media (max-width:560px) {
+    footer {
+        position: relative;
+    }
+    footer .content .box {
+        width: 100%;
+        margin-top: 30px;
+    }
+    footer .content .middle {
+        padding-left: 0;
+    }
+}

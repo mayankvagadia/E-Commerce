@@ -20,6 +20,8 @@ passport.use(new LocalStrategy({
     function (username, password, done) {
         username = username.toLowerCase();
         User.getUserByEmail(username).then(function (user) {
+            console.log("User :- ");
+            console.log(user);
             if (!user) {
                 return done(null, false, {
                     message: 'Unknown User or Invalid Password'

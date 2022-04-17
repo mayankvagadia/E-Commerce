@@ -11,6 +11,10 @@ module.exports = {
     "root_user": "admin",
     "root_password": "admin",
   },
+  db: {
+    "connection": "mongodb://127.0.0.1",
+    "name": "testdb"
+  },
   ignoreFieldsInBlueshift: ["transactionId"],
   ignoreFieldsInLeadprosper: ["transactionId"],
   main_image_dir: "../public/uploads",
@@ -30,7 +34,7 @@ module.exports = {
   super_password: "123456",
   timezone: 'UTC',
   default_time_zone: '-06:00', // CST or CDT
-  
+
   all_scheduler: "off",
   schedulers: {
     // example: {
